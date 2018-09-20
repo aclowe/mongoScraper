@@ -8,6 +8,9 @@ var cheerio = require("cheerio");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 
+// use Heroku-determined port of 3030
+var PORT = process.env.PORT || 3030;
+
 // Require models
 var Article = require("./models/article.js");
 var Comments = require("./models/comment.js");
@@ -121,6 +124,6 @@ app.post("/articles/:id", function(req, res) {
 
 
 // Listen on port 3000
-app.listen(3030, function() {
+app.listen(PORT, function() {
   console.log("App running on port 3030!");
 });
